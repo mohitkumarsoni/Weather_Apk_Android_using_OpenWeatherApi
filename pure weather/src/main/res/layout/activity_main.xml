@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="weatherapp"
+            type="com.example.pureweather.model.Weather_App" />
+
+        <variable
+            name="main"
+            type="com.example.pureweather.model.Main" />
+
+        <variable
+            name="weather"
+            type="com.example.pureweather.model.Weather" />
+
+        <variable
+            name="wind"
+            type="com.example.pureweather.model.Wind" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/darkBlue"
+        android:padding="8dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pure_weather"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:fontFamily="@font/vampire_wars"
+            android:textAlignment="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp"
+            android:padding="10dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_tone">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/weather_logo"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/temperatureTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="32"
+                    android:text="@{main.temp.toString()}"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:layout_marginEnd="4dp"
+                    android:textAlignment="viewEnd"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/degree_celcus"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/high"
+                    android:textColor="@color/text1"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="10dp"
+                    android:textAlignment="viewEnd"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tempHigh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="34"
+                    android:text="@{main.tempMax.toString()}"
+                    android:textColor="@color/offWhite"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="10dp"
+                    android:textAlignment="viewStart"
+                    android:layout_weight="1"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/low"
+                    android:textColor="@color/text1"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="10dp"
+                    android:textAlignment="viewEnd"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tempLow"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="28"
+                    android:text="@{main.tempMin.toString()}"
+                    android:textColor="@color/offWhite"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="10dp"
+                    android:textAlignment="viewStart"
+                    android:layout_weight="0.7"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:baselineAligned="true"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:src="@drawable/weather_color1"
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/rainTv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            tools:text="cloudy"
+                            android:layout_marginEnd="2dp"
+                            android:text="@{weather.main}"
+                            android:textColor="@color/offWhite"
+                            android:textSize="18sp"
+                            android:layout_weight="1"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weather"
+                        android:textAlignment="center"
+                        android:textColor="@color/text1"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:src="@drawable/wind_color1"
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/windTv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewEnd"
+                            android:layout_marginEnd="2dp"
+                            tools:text="0.33"
+                            android:text="@{wind.speed.toString()}"
+                            android:textColor="@color/offWhite"
+                            android:textSize="18sp"
+                            android:layout_weight="1"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/m_h"
+                            android:layout_weight="1"
+                            android:textColor="@color/offWhite"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@color/text1"
+                        android:text="@string/wind_speed"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:src="@drawable/humidity_color2"
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/humidityTv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewEnd"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="2dp"
+                            tools:text="56"
+                            android:text="@{main.humidity.toString()}"
+                            android:textColor="@color/offWhite"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAlignment="viewStart"
+                            android:text="@string/percentage"
+                            android:textColor="@color/offWhite"
+                            android:textSize="18sp"
+                            android:textStyle="italic"/>
+
+                    </LinearLayout>
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@color/text1"
+                        android:text="@string/humidity"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/countrySpinner"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/stateSpinner"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/citySpinner"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchFab"
+            android:layout_gravity="end"
+            android:layout_margin="16dp"
+            android:src="@drawable/baseline_search_24"
+            android:backgroundTint="@color/offWhite"
+            android:contentDescription="@string/todo" />
+
+    </LinearLayout>
+
+</layout>
+
